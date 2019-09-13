@@ -35,8 +35,8 @@ plt.title('SAT vs. GPA Scores (Testing Data)')
 plt.legend()
 plt.show()
 
-#Unblock this code to predict GPA points based on inputted SAT scores
-""" X_pred = []
+#Predict GPA points based on inputted SAT scores
+X_pred = []
 i=1
 while(i):
     input_data=input("Enter a SAT Score (or enter any non integer to exit): ")
@@ -48,7 +48,7 @@ if(len(X_pred) != 0):
     y_pred = model.predict(X_pred)
     print(y_pred)
 else:
-    print("No points to show") """
+    print("No points to show")
 
 
 #Unblock this code to check that the predictions are correct in relation to the regression line through visualization
