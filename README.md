@@ -5,6 +5,8 @@ Dataset was taken from [here](https://www.kaggle.com/luddarell/101-simple-linear
 
 ![Training Data](./images/training.jpg)
 ![Testing Data](./images/testing.jpg)
+
+
 _Training vs. Testing data based on the same regression line (green)_
 
 ## Background
