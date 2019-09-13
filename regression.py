@@ -37,9 +37,11 @@ while(i):
         X_pred.append([int(input_data)])
     else:
         i=0
-
-y_pred = regression.predict(X_pred)
-print(y_pred)
+if(len(X_pred) != 0):
+    y_pred = regression.predict(X_pred)
+    print(y_pred)
+else:
+    print("No points to show")
 
 #Unblock this code to check that the predictions are correct in relation to the regression line
 """ plt.scatter(X_pred, y_pred, color='red')
