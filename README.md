@@ -3,16 +3,16 @@ An educational web-app built from streamlit to interact and visualize polynomial
 
 <!--![gif](./images/reg.gif =600x700)-->
 <img src="./images/reg.gif" alt="demo" width="800" height="500"/>
+
 ## Features to be added
 - [ ] Show code that is executing
 - [ ] Show other datasets
 - [ ] Structure the application in a more readable manner
 - [ ] Add error function equations, and weight calculations
 - [ ] Graph with lines not points
- ## About
-  This web-app was created using [streamlit](https://streamlit.io), [matplotlib](https://matplotlib.org), 
-    [sci-kit learn](https://scikit-learn.org/stable/), [pandas](https://pandas.pydata.org/) and [NumPy](
-    https://numpy.org). It is currently a WIP with plans to add more features soon!
+
+## About
+This web-app was created using [streamlit](https://streamlit.io), [matplotlib](https://matplotlib.org),[sci-kit learn](https://scikit-learn.org/stable/), [pandas](https://pandas.pydata.org/) and [NumPy](https://numpy.org). It is currently a WIP with plans to add more features soon!
 
 <!---A practice in utilizing linear regression to predict a candidates GPA based on SAT scores
 
