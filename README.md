@@ -1,7 +1,7 @@
 # Linear-Regression
 An educational web-app built from streamlit to interact and visualize polynomial regression models
 
-![gif](./images/reg.gif)
+![gif](./images/reg.gif =600x700)
 ## Features to be added
 - [ ] Show code that is executing
 - [ ] Show other datasets
