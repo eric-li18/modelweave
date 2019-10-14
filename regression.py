@@ -24,6 +24,7 @@ plt.xlabel('SAT Scores')
 plt.ylabel('GPA (4.0 scale)')
 plt.title('SAT vs. GPA Scores (Training Data)')
 plt.legend()
+plt.savefig("training.jpg")
 plt.show()
 
 #Plot the test data with regression line
@@ -33,6 +34,7 @@ plt.xlabel('SAT Scores')
 plt.ylabel('GPA (4.0 scale)')
 plt.title('SAT vs. GPA Scores (Testing Data)')
 plt.legend()
+plt.savefig("testing.jpg")
 plt.show()
 
 #Predict GPA points based on inputted SAT scores
