@@ -75,7 +75,7 @@ def GetBestPolynomial(xTrain,yTrain,xTest,yTest,h):
     # print("\nBest choice of d = "+str(errorsTestVec.index(min(errorsTestVec))+1)+"\n")
 
 if __name__ == "__main__":
-    df = pd.read_csv("hw1_polyreg.csv")
+    df = pd.read_csv("polyreg.csv")
     X = df.iloc[:, 0:1].values
     y = df.iloc[:, 1:].values
 
@@ -104,21 +104,11 @@ if __name__ == "__main__":
         tempTest = np.hstack((XTest,yTest))
         st.markdown("#### Here is the Testing Data!")
         st.write(tempTest)
-    # plt.scatter(XTrain,yTrain,color='g')
-    # plt.xlabel("X")
-    # plt.ylabel("Y")
-    # plt.title("Graph with changing training data")
-    # st.pyplot()
-
-    # print(FitPolynomialRegression(9,XTrain,yTrain))
-    # print(np.polyfit(XTrain.reshape(1,XTrain.size)[0],yTrain,9))
-    # print(FitPolynomialRegression(2, np.array([[1],[2],[3]]), np.array([[1],[2],[3]])))
-    # print(EvalPolynomial(np.arange(7),np.arange(5)))
 
     st.markdown("### Here is a chart for the data fitted with the test data and the regression line")
     errTest, errTrain = GetBestPolynomial(XTrain,yTrain,XTest, yTest, H)
     if st.checkbox("Show Code"):
-        with st.echo():
+        with st.echo(): #Shows code that appears
             def GetBestPolynomial(xTrain, yTrain, xTest, yTest, h):
                 errorsTrainVec = []
                 errorsTestVec = []
@@ -131,6 +121,7 @@ if __name__ == "__main__":
                     errorsTrainVec.append(errorTrain / 75)
                     errorsTestVec.append(errorTest / 25)
                 return np.array(errorsTestVec), np.array(errorsTrainVec)
+                
     errTrain = errTrain.reshape((errTrain.shape[0],1))
     errTest = errTest.reshape((errTest.shape[0],1))
     errTotal = np.hstack((errTrain,errTest))
