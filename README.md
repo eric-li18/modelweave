@@ -3,7 +3,14 @@ An educational web-app built from streamlit to interact and visualize polynomial
 
 Currently train and test data can be split interactively, polynomial degree can be changed using the slider, code for calculating weights is shown and error vs. model complexity is shown based on polynomial degree.
 <!--![gif](./images/reg.gif =600x700)-->
-<img src="./images/reg.gif" alt="demo" width="900" height="500"/>
+<img src="./images/reg.gif" alt="demo" width="818" height="454"/>
+
+_Polynomial Regression_
+
+<img src="./images/voronoi.gif" alt="demo" width="818" height="454"/>
+
+
+_Voronoi Tessellation_
 
 _Web app code contained in app.py_
 
