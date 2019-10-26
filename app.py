@@ -16,9 +16,9 @@ def showRegression():
             errorsTrainVec = []
             errorsTestVec = []
             for i in range(1, h + 1):
-                weights = FitPolynomialRegression(i, xTrain, yTrain)
-                outputsTrain = EvalPolynomial(xTrain, weights)
-                outputsTest = EvalPolynomial(xTest, weights)
+                weights = polyreg.FitPolynomialRegression(i, xTrain, yTrain)
+                outputsTrain = polyreg.EvalPolynomial(xTrain, weights)
+                outputsTest = polyreg.EvalPolynomial(xTest, weights)
                 errorTrain = (np.linalg.norm(yTrain - outputsTrain)) ** 2
                 errorTest = (np.linalg.norm(yTest - outputsTest)) ** 2
                 errorsTrainVec.append(errorTrain / 75)
@@ -53,7 +53,8 @@ if __name__ == "__main__":
         df = pd.read_csv("polyreg.csv")
         X = df.iloc[:, 0:1].values
         y = df.iloc[:, 1:].values
-        split = st.sidebar.slider('Test Size (number of points)', min_value=0, max_value=X.shape[0],value=int(0.5 * X.shape[0]))
+        split = st.sidebar.slider('Test Size (number of points)', min_value=0, max_value=X.shape[0]-1,value=int(0.5 *
+                                                                                                               X.shape[0]))
         XTrain, XTest, yTrain, yTest = model_selection.train_test_split(X, y, test_size=(float(split) / X.shape[0]),
                                                              random_state=0)
         polynomial = st.sidebar.slider('Polynomial Size', min_value=1, max_value=5)
@@ -88,7 +89,9 @@ if __name__ == "__main__":
         iris = datasets.load_iris()
         X = iris.data[:100, :2]  # first is rows (100 rows) and second is features (1-4 features)
         y = iris.target[:100]  # the labels
-        XTrain, XTest, yTrain, yTest = model_selection.train_test_split(X, y, test_size=0.20, random_state=0)
+        split = st.sidebar.slider('Test Size (number of points)', min_value=0, max_value=X.shape[0]-1,value=int(0.5 *
+                                                                                                               X.shape[0]))
+        XTrain, XTest, yTrain, yTest = model_selection.train_test_split(X, y, test_size=(float(split) / X.shape[0]), random_state=0)
         # tolerance = [0.0001, 0.9]
         # lr = [0.001, 0.5, 0.99]
 
@@ -102,17 +105,22 @@ if __name__ == "__main__":
         print("True Positive: ", ConfusionMatrix[0], "True Negative: ", ConfusionMatrix[3], "\nFalse Positive: ",
               ConfusionMatrix[1], "False Negative: ", ConfusionMatrix[2])
 
+
+        from scipy.spatial import voronoi_plot_2d,Voronoi
+        vor = Voronoi(XTrain,incremental=True)
+        # plt.scatter(XTest[yTest == 0][:, 0], XTest[yTest == 0][:, 1], color='c', label='0 Test')
+        # plt.scatter(XTest[yTest == 1][:, 0], XTest[yTest == 1][:, 1], color='y', label='1 Test')
+        # plt.title("Logistic Regression on Iris Dataset, alpha=" + str(0.001) + ", T=" + str(0.0001))
+        # x_values = [np.min(X[:, 0]), np.max(X[:, 1] + 2.5)]
+        # y_values = - (model[0] + np.dot(model[1], x_values)) / model[2]
+        # plt.plot(x_values, y_values, label='Decision Boundary')
+        # plt.legend()
+        voronoi_plot_2d(vor)
         plt.scatter(XTrain[yTrain == 0][:, 0], XTrain[yTrain == 0][:, 1], color='b', label='0 Train')
-        plt.scatter(XTrain[yTrain == 1][:, 0], XTrain[yTrain == 1][:, 1], color='r', label='1 Train')
-        plt.scatter(XTest[yTest == 0][:, 0], XTest[yTest == 0][:, 1], color='c', label='0 Test')
-        plt.scatter(XTest[yTest == 1][:, 0], XTest[yTest == 1][:, 1], color='y', label='1 Test')
+        plt.scatter(XTrain[yTrain == 1][:, 0], XTrain[yTrain == 1][:, 1], color='g', label='1 Train')
         plt.xlabel("Feature x1")
         plt.ylabel("Feature x2")
-        plt.title("Logistic Regression on Iris Dataset, alpha=" + str(0.001) + ", T=" + str(0.0001))
-        x_values = [np.min(X[:, 0]), np.max(X[:, 1] + 2.5)]
-        y_values = - (model[0] + np.dot(model[1], x_values)) / model[2]
-        plt.plot(x_values, y_values, label='Decision Boundary')
-        plt.legend()
+        plt.title("Voronoi Tessellation")
         st.pyplot()
         # plt.show()
     aboutSection()

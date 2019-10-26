@@ -1,8 +1,9 @@
 # from sklearn import datasets, model_selection
 # import matplotlib.pyplot as plt
 import numpy as np
+import streamlit as st
 
-
+# @st.cache
 def Predict(w, X, yTruth):
     X = np.hstack((np.ones((X.shape[0], 1)), X))
     pred = sigmoid(np.dot(X, w)).round()
@@ -27,7 +28,7 @@ def Predict(w, X, yTruth):
             ConfMat[3] += 1
     return ConfMat
 
-
+# @st.cache
 def Metrics(ConfMat):
     if not ConfMat[0] and not ConfMat[2]:
         recall = 0.0001
@@ -40,11 +41,11 @@ def Metrics(ConfMat):
     f1score = 2 * ((precision * recall) / (precision + recall))
     return [recall, precision, f1score]
 
-
+# @st.cache
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
 
-
+# @st.cache
 def LossGradient(w, X, y):
     return np.dot(X.T, sigmoid(np.dot(X, w)) - y)
 
@@ -52,7 +53,7 @@ def LossGradient(w, X, y):
 # def Loss(w, X, y):
 #     h = sigmoid(np.dot(X, w))
 #     return (-y * np.log(h + 1e-9) - (1 - y) * np.log(1 - h + 1e-9)).mean()
-
+# @st.cache
 def FindWeight(tolerance, learningrate, X, y):
     # stop when reach descent tolerance
     iterations = 1
