@@ -1,4 +1,4 @@
-# modelweave🕸️
+# modelweave 🕸️
 An educational web-app built from streamlit to interact and visualize polynomial regression models
 
 Currently train and test data can be split interactively, polynomial degree can be changed using the slider, code for calculating weights is shown and error vs. model complexity is shown based on polynomial degree.
