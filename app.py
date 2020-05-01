@@ -75,7 +75,7 @@ if __name__ == "__main__":
             Enjoy and Happy Fitting!   
             ''')
 
-        df = pd.read_csv("polyreg.csv")
+        df = pd.read_csv("data/polyreg.csv")
         X = df.iloc[:, 0:1].values
         y = df.iloc[:, 1:].values
         split = st.sidebar.slider('Test Size (number of points)', min_value=0, max_value=X.shape[0] - 1, value=int(0.5 *
