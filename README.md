@@ -1,4 +1,4 @@
-# modelweave 🕸️
+# modelweave️
 [![Build Status](https://travis-ci.com/eric-li18/modelweave.svg?branch=master)](https://travis-ci.com/eric-li18/modelweave)
 
 An educational web-app built from streamlit to interact and visualize polynomial regression models
