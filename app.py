@@ -1,16 +1,14 @@
-import time
-
-import matplotlib
-
-matplotlib.use('Agg')
-from scipy.spatial import voronoi_plot_2d, Voronoi
-import streamlit as st
-import pandas as pd
-import numpy as np
-from sklearn import model_selection, datasets
-import logreg
-import polyreg
 import matplotlib.pyplot as plt
+import polyreg
+import logreg
+from sklearn import model_selection, datasets
+import numpy as np
+import pandas as pd
+import streamlit as st
+from scipy.spatial import voronoi_plot_2d, Voronoi
+import time
+import matplotlib
+matplotlib.use('Agg')
 
 
 def showRegression():
@@ -27,6 +25,7 @@ def showRegression():
                 errorsTrainVec.append(errorTrain / 75)
                 errorsTestVec.append(errorTest / 25)
             return np.array(errorsTestVec), np.array(errorsTrainVec)
+
 
 def showLogistic():
     with st.echo():
@@ -47,6 +46,7 @@ def showLogistic():
                 wLast = wNext
                 wNext = wNext - learningrate * Gradient(wNext, X, y)
             return wNext, iterations
+
 
 def aboutSection():
     st.markdown('''
@@ -83,7 +83,8 @@ if __name__ == "__main__":
                                                                                                                        0]))
         XTrain, XTest, yTrain, yTest = model_selection.train_test_split(X, y, test_size=(float(split) / X.shape[0]),
                                                                         random_state=0)
-        polynomial = st.sidebar.slider('Polynomial Size', min_value=1, max_value=5)
+        polynomial = st.sidebar.slider(
+            'Polynomial Size', min_value=1, max_value=5)
 
         if st.sidebar.checkbox("Show Dataframe"):
             st.markdown("#### Here is the Dataframe we're working with!")
@@ -93,14 +94,16 @@ if __name__ == "__main__":
             st.markdown("#### Here is the Testing Data!")
             st.write(tempTest)
 
-        st.markdown("### Here is a chart for the data fitted with the test data and the regression line")
-        errTotal = polyreg.GetBestPolynomial(XTrain, yTrain, XTest, yTest, polynomial)
+        st.markdown(
+            "### Here is a chart for the data fitted with the test data and the regression line")
+        errTotal = polyreg.GetBestPolynomial(
+            XTrain, yTrain, XTest, yTest, polynomial)
         if st.checkbox("Show Code"):
             showRegression()
 
         data = pd.DataFrame(errTotal, columns=["Train Error", "Test Error"])
-        errTrain = errTotal[:,:1]
-        errTest = errTotal[:,:2]
+        errTrain = errTotal[:, :1]
+        errTest = errTotal[:, :2]
         st.markdown("## Error vs. Model Complexity")
         lastrowTrain = errTrain[0]
         lastrowTest = errTrain[0]
@@ -111,19 +114,19 @@ if __name__ == "__main__":
             chart.add_rows(newrowTrain)
             time.sleep(0.1)
 
-        st.markdown("### Let's look into the train and test errors producing the line chart above")
+        st.markdown(
+            "### Let's look into the train and test errors producing the line chart above")
         st.write(data)
         st.markdown('''
         As we can see, as the polynomial value increases, the regression line begins to overfit the data, resulting in a 
         lower train error, but increase in test error.
         ''')
 
-
-
     elif option == "Logistic Regression":
         # take the first two classes of the dataset i.e., first 100 instances.
         iris = datasets.load_iris()
-        X = iris.data[:100, :2]  # first is rows (100 rows) and second is features (1-4 features)
+        # first is rows (100 rows) and second is features (1-4 features)
+        X = iris.data[:100, :2]
         y = iris.target[:100]  # the labels
         split = st.sidebar.slider('Test Size (number of points)', min_value=0, max_value=X.shape[0] - 1, value=int(0.5 *
                                                                                                                    X.shape[
@@ -142,11 +145,14 @@ if __name__ == "__main__":
         print("True Positive: ", ConfusionMatrix[0], "True Negative: ", ConfusionMatrix[3], "\nFalse Positive: ",
               ConfusionMatrix[1], "False Negative: ", ConfusionMatrix[2])
 
-        plt.scatter(XTrain[yTrain == 0][:, 0], XTrain[yTrain == 0][:, 1], color='b', label='0 Train')
-        plt.scatter(XTrain[yTrain == 1][:, 0], XTrain[yTrain == 1][:, 1], color='g', label='1 Train')
+        plt.scatter(XTrain[yTrain == 0][:, 0], XTrain[yTrain == 0]
+                    [:, 1], color='b', label='0 Train')
+        plt.scatter(XTrain[yTrain == 1][:, 0], XTrain[yTrain == 1]
+                    [:, 1], color='g', label='1 Train')
         # plt.scatter(XTest[yTest == 0][:, 0], XTest[yTest == 0][:, 1], color='c', label='0 Test')
         # plt.scatter(XTest[yTest == 1][:, 0], XTest[yTest == 1][:, 1], color='y', label='1 Test')
-        plt.title("Logistic Regression on Iris Dataset, alpha=" + str(0.001) + ", T=" + str(0.0001))
+        plt.title("Logistic Regression on Iris Dataset, alpha=" +
+                  str(0.001) + ", T=" + str(0.0001))
         x_values = [np.min(X[:, 0]), np.max(X[:, 1] + 2.5)]
         y_values = - (model[0] + np.dot(model[1], x_values)) / model[2]
         plt.plot(x_values, y_values, label='Decision Boundary')
@@ -155,23 +161,26 @@ if __name__ == "__main__":
         plt.legend()
         st.pyplot()
 
-
         if st.sidebar.checkbox("Show Code"):
             showLogistic()
 
     elif option == "1-NN":
 
         iris = datasets.load_iris()
-        X = iris.data[:100, :2]  # first is rows (100 rows) and second is features (1-4 features)
+        # first is rows (100 rows) and second is features (1-4 features)
+        X = iris.data[:100, :2]
         y = iris.target[:100]  # the labels
         split = st.sidebar.slider('Test Size (number of points)', min_value=0, max_value=X.shape[0] - 5, value=int(0.5 *
                                                                                                                    X.shape[
                                                                                                                        0]))
-        XTrain, XTest, yTrain, yTest = model_selection.train_test_split(X, y, test_size=(float(split) / X.shape[0]))
+        XTrain, XTest, yTrain, yTest = model_selection.train_test_split(
+            X, y, test_size=(float(split) / X.shape[0]))
         vor = Voronoi(XTrain, incremental=True)
         voronoi_plot_2d(vor)
-        plt.scatter(XTrain[yTrain == 0][:, 0], XTrain[yTrain == 0][:, 1], color='b', label='0 Train')
-        plt.scatter(XTrain[yTrain == 1][:, 0], XTrain[yTrain == 1][:, 1], color='g', label='1 Train')
+        plt.scatter(XTrain[yTrain == 0][:, 0], XTrain[yTrain == 0]
+                    [:, 1], color='b', label='0 Train')
+        plt.scatter(XTrain[yTrain == 1][:, 0], XTrain[yTrain == 1]
+                    [:, 1], color='g', label='1 Train')
         plt.xlabel("Feature x1")
         plt.ylabel("Feature x2")
         plt.title("Voronoi Tessellation")

@@ -14,8 +14,6 @@ _Polynomial Regression_
 
 _Voronoi Tessellation_
 
-_Web app code contained in app.py_
-
 ## Features to be added
 - [ ] Show code that is executing
 - [ ] Show other datasets
