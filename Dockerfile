@@ -7,6 +7,6 @@ COPY . /app
 RUN cd /app && \
     pip install -r requirements.txt
 
-EXPOSE 80
+ENV PORT 8501
 
-CMD ["python", "/app/app.py"]
+CMD ["streamlit run", "/app/app.py"]
