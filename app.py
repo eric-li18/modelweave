@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 from scipy.spatial import voronoi_plot_2d, Voronoi
-import time
+# import time
 import matplotlib
 matplotlib.use('Agg')
 
@@ -112,7 +112,7 @@ if __name__ == "__main__":
         for i in range(errTotal.shape[0]):
             newrowTrain = errTotal[i]
             chart.add_rows(newrowTrain)
-            time.sleep(0.1)
+            # time.sleep(0.1)
 
         st.markdown(
             "### Let's look into the train and test errors producing the line chart above")

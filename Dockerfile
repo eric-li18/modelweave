@@ -2,9 +2,11 @@ FROM python:3.6
 
 WORKDIR /app
 
-ADD /app .
+COPY . /app
 
 RUN cd /app && \
     pip install -r requirements.txt
 
-CMD ["app.py"]
+EXPOSE 80
+
+CMD ["python", "/app/app.py"]
