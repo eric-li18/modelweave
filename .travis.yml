@@ -2,6 +2,8 @@ language: python
 python:
   - 3.6
 
+script: python3 app.py
+
 deploy: 
   provider: heroku
   api_key:
