@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
-import files/polyreg
-import files/logreg
+import polyreg
+import logreg
 from sklearn import model_selection, datasets
 import numpy as np
 import pandas as pd
