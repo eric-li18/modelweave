@@ -1,7 +1,7 @@
 language: python
 python:
   - '3.6'
-deploy:
+deploy: &heroku
   provider: heroku
   api_key:
     secure: $HEROKU_TOKEN
