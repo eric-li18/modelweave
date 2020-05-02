@@ -3,4 +3,5 @@ python:
   - '3.6'
 deploy:
   provider: heroku
-  api_key: $HEROKU_TOKEN
+  api_key:
+    secure: $HEROKU_TOKEN
