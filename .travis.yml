@@ -1,6 +1,7 @@
 language: python
 python:
-  - '3.6'
+  - 3.6
+
 deploy: 
   provider: heroku
   api_key:
