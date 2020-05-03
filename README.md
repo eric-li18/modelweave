@@ -15,7 +15,7 @@ _Polynomial Regression_
 
 _Voronoi Tessellation_
 
-## Features to be added
+## Progress
 - [ ] Show code that is executing
 - [ ] Show other datasets
 - [ ] Structure the application in a more readable manner
@@ -23,7 +23,7 @@ _Voronoi Tessellation_
 - [ ] Graph with lines not points
 - [ ] Animate the visualization of Voronoi Tesselation for 1-NN
 - [ ] Provide a section on the math behind it
-- [ ] Add CI/CD and deploy onto cloud provider
+- [x] Add CI/CD and deploy onto cloud provider
 
 ## About
 This web-app was created using [streamlit](https://streamlit.io), [matplotlib](https://matplotlib.org),[sci-kit learn](https://scikit-learn.org/stable/), [pandas](https://pandas.pydata.org/) and [NumPy](https://numpy.org). It is currently a WIP with plans to add more features soon!
