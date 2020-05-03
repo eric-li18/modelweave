@@ -55,6 +55,7 @@ def aboutSection():
             This web-app was created using [streamlit](https://streamlit.io), [matplotlib](https://matplotlib.org), 
             [sci-kit learn](https://scikit-learn.org/stable/), [pandas](https://pandas.pydata.org/) and [NumPy](
             https://numpy.org). It is currently a WIP with plans to add more features soon!
+            [Git Repository here!](https://github.com/eric-li18/modelweave)
             ''')
 
 

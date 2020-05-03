@@ -5,7 +5,6 @@ An educational web-app built from [streamlit](https://streamlit.io) to interact 
 
 CI/CD pipeline setup with Travis-CI. Running on a Docker container hosted on Heroku.
 
-<!--![gif](./images/reg.gif =600x700)-->
 <img src="./images/reg.gif" alt="demo" width="818" height="430"/>
 
 _Polynomial Regression_
