@@ -1,7 +1,7 @@
 # modelweave️
 [![Build Status](https://travis-ci.com/eric-li18/modelweave.svg?branch=master)](https://travis-ci.com/eric-li18/modelweave)
 
-An educational web-app built from [streamlit](https://streamlit.io) to interact and visualize polynomial regression models
+A web-app built from [streamlit](https://streamlit.io) to interact and visualize machine learning models
 
 CI/CD pipeline setup with Travis-CI. Running on a Docker container hosted on Heroku.
 
