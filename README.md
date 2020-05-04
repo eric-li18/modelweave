@@ -15,7 +15,7 @@ _Polynomial Regression_
 _Voronoi Tessellation_
 
 ## Code Contribution
-Basic code was provided from [Madhu G Nadig's repository](https://github.com/madhug-nadig/Machine-Learning-Algorithms-from-Scratch)
+Basic ML Model code was provided from [Madhu G Nadig's repository](https://github.com/madhug-nadig/Machine-Learning-Algorithms-from-Scratch)
 
 ## Progress
 - [ ] Show code that is executing
