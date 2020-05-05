@@ -8,6 +8,7 @@
 # This is not an ideal application of simple linear regression, but it suffices to be a good experiment.
 
 import math
+import config
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import style
@@ -17,6 +18,7 @@ import quandl
 
 # for plotting
 plt.style.use('ggplot')
+
 
 class CustomLinearRegression:
 
@@ -34,12 +36,14 @@ class CustomLinearRegression:
     # finding the slope in best fit line
     def best_fit(self, dimOne, dimTwo):
         self.slope = ((self.arithmetic_mean(dimOne) * self.arithmetic_mean(dimTwo)) - self.arithmetic_mean(dimOne*dimTwo)) / \
-            (self.arithmetic_mean(dimOne)**2 - self.arithmetic_mean(dimOne**2))  # formula for finding slope
+            (self.arithmetic_mean(dimOne)**2 -
+             self.arithmetic_mean(dimOne**2))  # formula for finding slope
         return self.slope
 
     # finding the best fit intercept
     def y_intercept(self, dimOne, dimTwo):
-        self.intercept = self.arithmetic_mean(dimTwo) - (self.slope * self.arithmetic_mean(dimOne))
+        self.intercept = self.arithmetic_mean(
+            dimTwo) - (self.slope * self.arithmetic_mean(dimOne))
         return self.intercept
 
     # predict for future values based on model
@@ -63,8 +67,10 @@ class CustomLinearRegression:
 
 
 def main():
-    quandl.ApiConfig.api_key = ""
-    stk = quandl.get("WIKI/TSLA", start_date=, end_date=datetime.)
+	# add a slider or button to change the dates length of time shown, currently only 180 days
+    quandl.ApiConfig.api_key = config.QUANDL_API_KEY
+    stk = quandl.get("WIKI/TSLA", start_date=str(datetime.date.today() -
+                                                 datetime.timedelta(days=180)), end_date=str(datetime.date.today()))
 
     model = CustomLinearRegression()
 
