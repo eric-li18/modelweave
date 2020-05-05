@@ -67,10 +67,10 @@ class CustomLinearRegression:
 
 
 def main():
-	# add a slider or button to change the dates length of time shown, currently only 180 days
+        # add a slider or button to change the dates length of time shown, currently only 180 days
     quandl.ApiConfig.api_key = config.QUANDL_API_KEY
     stk = quandl.get("WIKI/TSLA", start_date=str(datetime.date.today() -
-                                                 datetime.timedelta(days=180)), end_date=str(datetime.date.today()))
+                                                 datetime.timedelta(days=300)), end_date=str(datetime.date.today()))
 
     model = CustomLinearRegression()
 
