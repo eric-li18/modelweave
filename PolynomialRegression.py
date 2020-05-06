@@ -77,3 +77,5 @@ def GetBestPolynomial(xTrain, yTrain, xTest, yTest, h):
     # print("\nTesting Error:\n")
     # print(np.array(errorsTestVec))
     # print("\nBest choice of d = "+str(errorsTestVec.index(min(errorsTestVec))+1)+"\n")
+def main():
+    pass

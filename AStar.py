@@ -235,7 +235,7 @@ class AStar:
     def getMap(self):
         return self.__map
 
-if "__main__" == __name__:
+def main()
     inpMap = Map2D("./data/graph.in")
     print("Initial Map:")
     inpMap.printMap()
