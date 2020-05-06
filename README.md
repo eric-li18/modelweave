@@ -1,9 +1,9 @@
-# modelweave️
+# A web-app built from [streamlit](https://streamlit.io) to interact and visualize machine learning models
+
 [![Build Status](https://travis-ci.com/eric-li18/modelweave.svg?branch=master)](https://travis-ci.com/eric-li18/modelweave)
 
-A web-app built from [streamlit](https://streamlit.io) to interact and visualize machine learning models
 
-CI/CD pipeline setup with Travis-CI. Running on a Docker container hosted on Heroku.
+CI/CD pipeline setup with Travis-CI. Running on a Docker container hosted on [ Heroku ](https://modelweave.herokuapp.com/).
 
 <img src="./images/reg.gif" alt="demo" width="818" height="430"/>
 
@@ -15,10 +15,9 @@ _Polynomial Regression_
 _Voronoi Tessellation_
 
 ## Code Contribution
-Basic ML Model code was provided from [Madhu G Nadig's repository](https://github.com/madhug-nadig/Machine-Learning-Algorithms-from-Scratch)
+Basic ML Model code was provided by [Madhu G Nadig's repository](https://github.com/madhug-nadig/Machine-Learning-Algorithms-from-Scratch)
 
 ## Progress
-- [ ] Show code that is executing
 - [ ] Show other datasets
 - [ ] Structure the application in a more readable manner
 - [ ] Add error function equations, and weight calculations
