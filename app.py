@@ -22,4 +22,5 @@ if __name__ == "__main__":
     elif page_option.lower() == "a-star":
         AStar.main()
     else:
+        # Home Page
         LinearRegression.main()
