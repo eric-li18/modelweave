@@ -171,9 +171,8 @@ if __name__ == "__main__":
         # first is rows (100 rows) and second is features (1-4 features)
         X = iris.data[:100, :2]
         y = iris.target[:100]  # the labels
-        split = st.sidebar.slider('Test Size (number of points)', min_value=0, max_value=X.shape[0] - 5, value=int(0.5 *
-                                                                                                                   X.shape[
-                                                                                                                       0]))
+        split = st.sidebar.slider('Test Size (number of points)', min_value=0,
+                                  max_value=X.shape[0] - 5, value=int(0.5 * X.shape[0]))
         XTrain, XTest, yTrain, yTest = model_selection.train_test_split(
             X, y, test_size=(float(split) / X.shape[0]))
         vor = Voronoi(XTrain, incremental=True)

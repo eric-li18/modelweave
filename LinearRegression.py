@@ -15,10 +15,10 @@ from matplotlib import style
 import pandas
 import datetime
 import quandl
+import streamlit as st
 
 # for plotting
 plt.style.use('ggplot')
-
 
 class CustomLinearRegression:
 
@@ -109,6 +109,7 @@ def main():
     slope = model.best_fit(x, y)  # find slope
     intercept = model.y_intercept(x, y)  # find the intercept
 
+    st.number_input(label="Enter a date to predict the stock price",min_value=0,max_value=3000)
     ip = list(map(int, input("Enter x to predict y: \n").split()))
 
     line = model.predict(ip)  # predict based on model
@@ -118,13 +119,9 @@ def main():
     print("Predicted value(s) after linear regression :", line)
 
     r_sqrd = model.r_squared(y, reg)
-    print("R^2 Value: ", r_sqrd)
+    st.markdown("The $R^2$ Value is " + r_sqrd)
 
     plt.scatter(x, y)
     plt.scatter(ip, line, color="red")
     plt.plot(x, reg)
-    plt.show()
-
-
-if __name__ == "__main__":
-    main()
+    st.pyplot()
