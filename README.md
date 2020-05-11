@@ -14,6 +14,13 @@ _Polynomial Regression_
 
 _Voronoi Tessellation_
 
+## Running the Code
+The above code can be run via the Dockerfile in the project's root directory with:
+```
+docker build ./
+docker run --publish 8080:8080 --detach --name modelweave
+```
+
 ## Code Contribution
 Basic ML Model code was provided by [Madhu G Nadig's repository](https://github.com/madhug-nadig/Machine-Learning-Algorithms-from-Scratch)
 
