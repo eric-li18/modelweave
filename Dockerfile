@@ -7,4 +7,4 @@ ADD . /app
 RUN cd /app && \
     pip install -r requirements.txt
 
-CMD streamlit run --server.port $PORT /app/app.py 
+CMD streamlit run --server.port $PORT /app/app.py
