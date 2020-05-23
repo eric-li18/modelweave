@@ -18,7 +18,7 @@ _Voronoi Tessellation_
 The above code can be run via the Dockerfile in the project's root directory with:
 ```
 docker build -t modelweave ./
-docker run -p 8080:8080 -d --name modelweave modelweave
+docker run -p 8080:8080 -itd --name modelweave modelweave
 ```
 
 ## Code Contribution
