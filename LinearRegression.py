@@ -20,6 +20,7 @@ import streamlit as st
 # for plotting
 plt.style.use('ggplot')
 
+
 class CustomLinearRegression:
 
     def __init__(self):
@@ -58,6 +59,7 @@ class CustomLinearRegression:
         return sum((model - original) ** 2)
 
     # find co-efficient of determination for R^2
+    @st.cache
     def r_squared(self, original, model):
         am_line = [self.arithmetic_mean(original) for y in original]
         sq_error = self.squared_error(original, model)
@@ -67,7 +69,8 @@ class CustomLinearRegression:
 
 
 def main():
-	# add a slider or button to change the dates length of time shown, currently only 180 days
+    # add a slider or button to change the dates length of time shown, currently only 180 days
+    st.sidebar.selectbox("Choose a stock to see real-time predictions", ("GOO"))
     quandl.ApiConfig.api_key = config.QUANDL_API_KEY
     stk = quandl.get("WIKI/TSLA")
 
@@ -93,12 +96,12 @@ def main():
     # IN CASE THE INPUT IS TO BE TAKEN IN FROM THE COMMAND PROMPT UNCOMMENT THE LINES BELOW
 
     # takes in input from the user
-    #x = list(map(int, input("Enter x: \n").split()))
-    #y = list(map(int, input("Enter y: \n").split()))
+    # x = list(map(int, input("Enter x: \n").split()))
+    # y = list(map(int, input("Enter y: \n").split()))
 
     # convert to an numpy array with datatype as 64 bit float.
-    #x = np.array(x, dtype = np.float64)
-    #y = np.array(y, dtype = np.float64)
+    # x = np.array(x, dtype = np.float64)
+    # y = np.array(y, dtype = np.float64)
 
     stk.dropna(inplace=True)
 
@@ -109,19 +112,23 @@ def main():
     slope = model.best_fit(x, y)  # find slope
     intercept = model.y_intercept(x, y)  # find the intercept
 
-    st.number_input(label="Enter a date to predict the stock price",min_value=0,max_value=3000)
-    ip = list(map(int, input("Enter x to predict y: \n").split()))
+    st.markdown(""" # Linear Regression
+    Simple linear regression is applied to stock data, where the $x$ values are time and $y$ values are the stock closing price. """)
+    date_input = st.number_input(
+        label="Enter a date to predict the stock price", min_value=0, max_value=3000, value=500, step=50)
 
-    line = model.predict(ip)  # predict based on model
+    line = model.predict([date_input])  # predict based on model
 
     reg = [(slope*param) + intercept for param in x]
 
     print("Predicted value(s) after linear regression :", line)
 
     r_sqrd = model.r_squared(y, reg)
-    st.markdown("The $R^2$ Value is " + r_sqrd)
+    st.markdown("The $R^2$ Value is " + str(r_sqrd))
 
     plt.scatter(x, y)
-    plt.scatter(ip, line, color="red")
-    plt.plot(x, reg)
+    plt.scatter([date_input], line, color="red")
+    plt.plot(x, reg, color='green')
+    plt.xlabel('Time (Days)')
+    plt.ylabel('Stock Closing Price (USD)')
     st.pyplot()
