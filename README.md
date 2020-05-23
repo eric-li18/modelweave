@@ -20,11 +20,15 @@ Basic ML Model code was provided by [Madhu G Nadig's repository](https://github.
 ## Progress
 - [ ] Show other datasets
 - [ ] Structure the application in a more readable manner
-- [ ] Add error function equations, and weight calculations
 - [ ] Graph with lines not points
 - [ ] Animate the visualization of Voronoi Tesselation for 1-NN
-- [ ] Provide a section on the math behind it
 - [x] Add CI/CD and deploy onto cloud provider
+### Feature: Linear Regression
+- [ ] Change code from manual to library-optimized?
+- [ ] Change time to yearly increments
+- [ ] Change graph to interactive
+- [ ] Add quick description of $R^2$ value and other concepts
+- [ ] Date is int instead of date, change to reflect that
 
 ## About
 This web-app was created using [streamlit](https://streamlit.io), [matplotlib](https://matplotlib.org),[sci-kit learn](https://scikit-learn.org/stable/), [pandas](https://pandas.pydata.org/) and [NumPy](https://numpy.org). It is currently a WIP with plans to add more features soon!
