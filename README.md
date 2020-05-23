@@ -27,7 +27,7 @@ Basic ML Model code was provided by [Madhu G Nadig's repository](https://github.
 - [ ] Change code from manual to library-optimized?
 - [ ] Change time to yearly increments
 - [ ] Change graph to interactive
-- [ ] Add quick description of $R^2$ value and other concepts
+- [ ] Add quick description of R^2 value and other concepts
 - [ ] Date is int instead of date, change to reflect that
 
 ## About
