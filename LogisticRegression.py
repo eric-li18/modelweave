@@ -21,8 +21,8 @@ plt.style.use('ggplot')
 
 class CustomLogisticRegression:
 	
-	def __init__(self, x, y, tolerence = 0.00001):
-		self.tolerence = tolerence
+	def __init__(self, x, y, tolerance = 0.00001):
+		self.tolerance = tolerance
 		self.cost = []
 		self.alpha = 0.1
 		self.lambd = 0.25
