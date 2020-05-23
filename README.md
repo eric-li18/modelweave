@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/eric-li18/modelweave.svg?branch=master)](https://travis-ci.com/eric-li18/modelweave)
 
 
-CI/CD pipeline setup with Travis-CI. Running on a Docker container hosted on [ Heroku ](https://modelweave.herokuapp.com/).
+CI/CD pipeline setup with Travis-CI. Running on a Docker container hosted on [ Heroku](https://modelweave.herokuapp.com/).
 
 <img src="./images/reg.gif" alt="demo" width="818" height="430"/>
 
