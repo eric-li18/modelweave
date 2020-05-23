@@ -70,9 +70,9 @@ class CustomLinearRegression:
 
 def main():
     # add a slider or button to change the dates length of time shown, currently only 180 days
-    st.sidebar.selectbox("Choose a stock to see real-time predictions", ("GOO"))
+    ticker = st.sidebar.selectbox("Choose a stock to see real-time predictions", ("TSLA","GOOG","AAPL","AMZN","FB","MSFT"))
     quandl.ApiConfig.api_key = config.QUANDL_API_KEY
-    stk = quandl.get("WIKI/TSLA")
+    stk = quandl.get("WIKI/" + ticker)
 
     model = CustomLinearRegression()
 
