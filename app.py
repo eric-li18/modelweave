@@ -9,7 +9,8 @@ import KMeansClustering
 import KNearestNeighbours
 
 if __name__ == "__main__":
-    page_option = st.sidebar.selectbox()
+    page_option = st.sidebar.selectbox("Select an interactice model visualization", (
+        "Logistic Regression", "K Nearest Neighbours", "Naive Bayes", "Polynomial Regression", "A-Star"))
 
     if page_option.lower() == "logistic regression":
         LogisticRegression.main()
