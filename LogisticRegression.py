@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib import style
 import pandas as pd
 import datetime
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 
 
 #for plotting
