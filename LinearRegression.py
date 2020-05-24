@@ -145,4 +145,4 @@ def main():
     st.pyplot()
     chart_data = pd.DataFrame(
         np.hstack((x, np.hstack((y, model2.predict(x))))), columns=["x", "True Values", "Regression Line"]).set_index("x")
-    st.line_chart(chart_data,use_container_width=True,height=500)
+    st.line_chart(chart_data,use_container_width=True,height=450)
