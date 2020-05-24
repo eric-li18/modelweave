@@ -8,6 +8,7 @@
 # This is not an ideal application of simple linear regression, but it suffices to be a good experiment.
 
 import math
+import pandas as pd
 import config
 from sklearn.linear_model import LinearRegression
 import numpy as np
@@ -71,7 +72,8 @@ class CustomLinearRegression:
 
 def main():
     # add a slider or button to change the dates length of time shown, currently only 180 days
-    ticker = st.sidebar.selectbox("Choose a stock to see real-time predictions", ("TSLA","GOOG","AAPL","AMZN","FB","MSFT"))
+    ticker = st.sidebar.selectbox(
+        "Choose a stock to see real-time predictions", ("TSLA", "GOOG", "AAPL", "AMZN", "FB", "MSFT"))
     quandl.ApiConfig.api_key = config.QUANDL_API_KEY
     stk = quandl.get("WIKI/" + ticker)
 
@@ -107,19 +109,19 @@ def main():
 
     stk.dropna(inplace=True)
 
-    x = np.array(stk['Date']).reshape(-1,1)
-    y = np.array(stk['label']).reshape(-1,1)
-    model2 = model2.fit(x,y)
+    x = np.array(stk['Date']).reshape(-1, 1)
+    y = np.array(stk['label']).reshape(-1, 1)
+    model2 = model2.fit(x, y)
 
     # Always in the order: first slope, then intercept
     # slope = model.best_fit(x, y)  # find slope
     # intercept = model.y_intercept(x, y)  # find the intercept
 
-    max_value = int( x.max() )
+    max_value = int(x.max())
     st.markdown(""" # Linear Regression
     Simple linear regression is applied to stock data, where the $x$ values are time and $y$ values are the stock closing price. """)
     date_input = st.number_input(
-        label="Enter a date to predict the stock price", min_value=0, max_value=max_value, value=int( round( max_value/2 ,ndigits=-1 ) ), step= int( round( max_value/10 ,ndigits=-1 ) ))
+        label="Enter a date to predict the stock price", min_value=0, max_value=max_value, value=int(round(max_value/2, -1)), step=int(round(max_value/10, -1)))
 
     # line = model.predict([date_input])  # predict based on model
 
@@ -129,13 +131,16 @@ def main():
 
     # r_sqrd = model.r_squared(y, reg)
     # st.markdown("The $R^2$ Value is " + str(r_sqrd))
-    st.markdown("The $R^2$ Value is " + str(model2.score(x,y)))
+    st.markdown("The $R^2$ Value is " + str(model2.score(x, y)))
+    st.markdown("The $R^2$ value (or coefficient of determination) is a value bounded between 0.0 and 1.0 that represents how well a model fits a set of data or the \"goodness of fit\".")
 
     # plt.scatter(x, y)
     # plt.plot(x, reg, color='green')
     plt.xlabel('Time (Days)')
     plt.ylabel('Stock Closing Price (USD)')
-    plt.scatter(x,y)
-    plt.scatter([date_input], model2.predict(np.array( [date_input] ).reshape(1,-1)), color="green")
-    plt.plot(x, model2.predict(x),color='black')
+    plt.plot(x, y)
+    plt.plot(x, model2.predict(x), color='black')
+    plt.scatter([date_input], model2.predict(
+        np.array([date_input]).reshape(1, -1)), color="green")
     st.pyplot()
+    st.line_chart(pd.DataFrame(y,x))
