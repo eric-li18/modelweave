@@ -32,7 +32,7 @@ Basic ML Model code was provided by [Madhu G Nadig's repository](https://github.
 - [x] Add CI/CD and deploy onto cloud provider
 
 ## About
-This web-app was created using [streamlit](https://streamlit.io), [matplotlib](https://matplotlib.org),[sci-kit learn](https://scikit-learn.org/stable/), [pandas](https://pandas.pydata.org/) and [NumPy](https://numpy.org). It is currently a WIP with plans to add more features soon!
+Front-end was done using [streamlit](https://streamlit.io) and various other ML and plot libraries. It is currently a WIP with plans to add more features soon!
 
 <!---A practice in utilizing linear regression to predict a candidates GPA based on SAT scores
 
