@@ -121,7 +121,7 @@ def main():
     st.markdown(""" # Linear Regression
     Simple linear regression is applied to stock data, where the $x$ values are time and $y$ values are the stock closing price. """)
     date_input = st.number_input(
-        label="Enter a date to predict the stock price", min_value=0, max_value=max_value, value=int(round(max_value/2, -1)), step=int(round(max_value/10, -1)))
+        label="Enter a date to predict the stock price", min_value=0, max_value=max_value, value=int(round(max_value/2, -1)), step=1000)
 
     # line = model.predict([date_input])  # predict based on model
 
@@ -143,4 +143,6 @@ def main():
     plt.scatter([date_input], model2.predict(
         np.array([date_input]).reshape(1, -1)), color="green")
     st.pyplot()
-    st.line_chart(pd.DataFrame(y,x))
+    chart_data = pd.DataFrame(
+        np.hstack((x, np.hstack((y, model2.predict(x))))), columns=["x", "True Values", "Regression Line"]).set_index("x")
+    st.line_chart(chart_data,use_container_width=True,height=500)
