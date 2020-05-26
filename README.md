@@ -1,4 +1,4 @@
-# A web-app built from [streamlit](https://streamlit.io) to interact and visualize machine learning models
+# A web-app built with [streamlit](https://streamlit.io) to visualize and interact with machine learning models
 
 [![Build Status](https://travis-ci.com/eric-li18/modelweave.svg?branch=master)](https://travis-ci.com/eric-li18/modelweave)
 
