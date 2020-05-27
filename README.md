@@ -22,7 +22,7 @@ docker run -p 8080:8080 -itd --name modelweave modelweave
 ```
 
 ## Code Contribution
-Basic ML Model code was provided by [Madhu G Nadig's repository](https://github.com/madhug-nadig/Machine-Learning-Algorithms-from-Scratch)
+Basic ML code was provided by [Madhu G Nadig's repository](https://github.com/madhug-nadig/Machine-Learning-Algorithms-from-Scratch)
 
 ## Progress
 - [ ] Structure the application in a more readable manner
