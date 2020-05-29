@@ -30,6 +30,7 @@ Basic ML code was provided by [Madhu G Nadig's repository](https://github.com/ma
 - [ ] Graph with lines not points
 - [ ] Animate the visualization of Voronoi Tesselation for 1-NN
 - [x] Add CI/CD and deploy onto cloud provider
+- [x] Plot in plotly for interactivity
 
 ## About
 Front-end was done using [streamlit](https://streamlit.io) and various other ML and plot libraries. It is currently a WIP with plans to add more features soon!
