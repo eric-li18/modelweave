@@ -20,6 +20,11 @@ The above code can be run via the Dockerfile in the project's root directory wit
 docker build -t modelweave ./
 docker run -p 8080:8080 -itd --name modelweave modelweave
 ```
+Alternatively, the code can be run via:
+```
+pip install streamlit
+streamlit run app.py
+```
 
 ## Code Contribution
 Basic ML code was provided by [Madhu G Nadig's repository](https://github.com/madhug-nadig/Machine-Learning-Algorithms-from-Scratch)
