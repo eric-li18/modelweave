@@ -32,7 +32,6 @@ Basic ML code was provided by [Madhu G Nadig's repository](https://github.com/ma
 ## Progress
 - [ ] Structure the application in a more readable manner
 - [ ] Add error function equations, and weight calculations
-- [ ] Graph with lines not points
 - [ ] Animate the visualization of Voronoi Tesselation for 1-NN
 - [x] Add CI/CD and deploy onto cloud provider
 - [x] Plot in plotly for interactivity
