@@ -37,7 +37,7 @@ Basic ML code was provided by [Madhu G Nadig's repository](https://github.com/ma
 - [x] Plot in plotly for interactivity
 
 ## About
-Front-end was done using [streamlit](https://streamlit.io) and various other ML and plot libraries. It is currently a WIP with plans to add more features soon!
+Front-end was done using [streamlit](https://streamlit.io) and various other ML and plot libraries. It is currently a WIP with plans to add more features soon.
 
 <!---A practice in utilizing linear regression to predict a candidates GPA based on SAT scores
 
