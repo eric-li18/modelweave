@@ -22,7 +22,7 @@ docker run -p 8080:8080 -itd --name modelweave modelweave
 ```
 Alternatively, the code can be run via:
 ```
-pip install streamlit
+pip install -r requirements.txt
 streamlit run app.py
 ```
 
